@@ -5,8 +5,8 @@
   become: true
   vars:
     users:
-    - "ansible"
-    - "it-admin"
+    - "user 1"
+    - "user 2"
   tasks:
   - name: Make sure we have a 'wheel' group
     group:
