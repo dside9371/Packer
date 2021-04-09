@@ -1,7 +1,7 @@
 {
     "vm-name": "Ubuntu-20.04-Packer-Template",
       
-    "vcenter-server":"vcneter hostname",
+    "vcenter-server":"vcenter hostname",
     "vcenter-username":"your username",
     "vcenter-password":"your password",
     
