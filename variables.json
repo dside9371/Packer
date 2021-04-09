@@ -1,0 +1,25 @@
+{
+    "vm-name": "Ubuntu-20.04-Packer-Template",
+      
+    "vcenter-server":"ia-va-vcenter-024.ia.local",
+    "vcenter-username":"kmuslih.sa@ia.local",
+    "vcenter-password":"fnamc0gVyRNyd3$8sFXfZNg%V0$mSt1eevjbG0e35BLccS$@vir6Rs2$Qb2ZSBAcjpo8WZ$XB^t%2lAFcTnbhQSH",
+    
+    "datacenter": "Blue Ravine",
+    "datastore": "Production_Perf_Vol1",
+    "folder": "Templates",
+    "cluster": "Production Cluster",
+    "network": "IA55-0",
+    "host": "ia-gn-vh-085.ia.local",
+    
+    "vm-cpu-num": "2",
+    "vm-mem-size": "4096",
+    "vm-disk-size": "10240",
+      
+    "ssh-username": "ubuntu",
+    "ssh-password": "ubuntu",
+    
+    "iso-url": "https://cdimage.ubuntu.com/ubuntu-legacy-server/releases/20.04.1/release/ubuntu-20.04.1-legacy-server-amd64.iso",
+    "iso-checksum": "f11bda2f2caed8f420802b59f382c25160b114ccc665dbac9c5046e7fceaced2",
+    "iso-checksum-type": "sha256"
+  }

@@ -1,0 +1,48 @@
+---
+# users.yml
+- name: 'Provision Image'
+  hosts: localhost
+  become: true
+  vars:
+    users:
+    - "ansible"
+    - "it-admin"
+  tasks:
+  - name: Make sure we have a 'wheel' group
+    group:
+      name: wheel
+      state: present
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  - name: "Create user accounts and add users to groups for Ubuntu"
+    user:
+      name: "{{ item }}"
+      shell: /bin/bash
+      groups: "sudo"
+    with_items: "{{ users }}"
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - name: "Create user accounts and add users to groups for CentOS"
+    user:
+      name: "{{ item }}"
+      shell: /bin/bash
+      groups: "wheel"
+    with_items: "{{ users }}"
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+  - name: "Add authorized keys"
+    authorized_key:
+      user: "{{ item }}"
+      key: "{{ lookup('file', '/tmp/'+ item + '.key.pub') }}"
+    with_items: "{{ users }}"
+  - name: "Allow sudo users to sudo without a password on Ubuntu"
+    lineinfile:
+      dest: "/etc/sudoers"
+      state: "present"
+      regexp: "^%sudo"
+      line: "%sudo ALL=(ALL) NOPASSWD: ALL"
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+  - name: "Allow wheel group to have passwordless sudo on CentOS"
+    lineinfile:
+      dest: "/etc/sudoers"
+      state: "present"
+      regexp: "^%wheel"
+      line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+    when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
