@@ -1,16 +1,16 @@
 {
     "vm-name": "Ubuntu-20.04-Packer-Template",
       
-    "vcenter-server":"ia-va-vcenter-024.ia.local",
-    "vcenter-username":"kmuslih.sa@ia.local",
-    "vcenter-password":"fnamc0gVyRNyd3$8sFXfZNg%V0$mSt1eevjbG0e35BLccS$@vir6Rs2$Qb2ZSBAcjpo8WZ$XB^t%2lAFcTnbhQSH",
+    "vcenter-server":"vcneter hostname",
+    "vcenter-username":"your username",
+    "vcenter-password":"your password",
     
-    "datacenter": "Blue Ravine",
-    "datastore": "Production_Perf_Vol1",
+    "datacenter": "your data center",
+    "datastore": "your iso store",
     "folder": "Templates",
     "cluster": "Production Cluster",
-    "network": "IA55-0",
-    "host": "ia-gn-vh-085.ia.local",
+    "network": "your network",
+    "host": "your host",
     
     "vm-cpu-num": "2",
     "vm-mem-size": "4096",
